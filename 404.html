@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-<script>
-  var redirect = new URLSearchParams(window.location.search).get('redirect');
-  if (redirect) {
-    window.history.replaceState(null, '', redirect);
-  }
-</script>
+    <meta charset="utf-8" />
+    <script>
+      var seg = window.location.pathname;
+      window.location.replace(
+        window.location.origin + '/?p=' + encodeURIComponent(seg)
+      );
+    </script>
   </head>
+  <body></body>
 </html>
