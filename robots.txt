@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pranjalvidyarthi.github.io/sitemap.xml
