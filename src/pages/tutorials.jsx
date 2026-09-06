@@ -90,7 +90,7 @@ const ProjectCard = ({ item, index }) => {
   );
 };
 
-const Projects = () => {
+const Tutorials = () => {
   return (
     <section className="projects-section">
       {/* background grid */}
@@ -101,7 +101,7 @@ const Projects = () => {
         {/* header */}
         <div className="projects-header">
           <p className="projects-eyebrow">What I've built</p>
-          <h2 className="projects-title">Project Series</h2>
+          <h2 className="projects-title">Tutorials</h2>
           <p className="projects-subtitle">
             Organised by theme — pick a series and dive in.
           </p>
@@ -119,4 +119,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Tutorials;
