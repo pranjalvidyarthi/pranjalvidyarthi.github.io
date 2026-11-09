@@ -1,0 +1,15 @@
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 16px;
+}
+.skill {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: var(--card);
+    color: var(--card-text);
+    padding: 16px 8px;
+    border-radius: 16px;
+    transition: transform .2s;
+}
+.skill:hover { transform: translateY(-4px); }
+.skill img { width: 36px; height: 36px; }
