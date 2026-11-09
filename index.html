@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pranjal Vidyarthi — The Creative Coder</title>
+
+  <!-- Requirements -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/custom-scroll-bar.css">
+  <link rel="stylesheet" href="styles/scroll-reveal.css">
+
+
+
+
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- Navbar -->
+    <nav>
+      <a class="brand" href="#home">Pranjal</a>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#web">Web Development</a></li>
+        <li><a href="#app">App Development</a></li>
+        <li><a href="#ux">Projects</a></li>
+        <li><a href="#story">My story</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="clock">Local time <b id="time">--:--</b> <span id="date"></span></div>
+    </nav>
+
+    <!-- Main (hero) section -->
+    <div class="hero-main">
+
+      <section class="hero" id="home">
+        <p class="tag">Independent Freelancer</p>
+        <h1>Hi, I'm Pranjal.<span>I am a</span></h1>
+
+        <div class="monitor" role="img" aria-label="Pranjal is a YouTuber, Web Developer, Photographer and Video Editor">
+          <div class="screen" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i><span>role.js</span></div>
+            <p class="line">$ whoami</p>
+            <p class="type"><b>&gt;</b> <span id="typed"></span></p>
+          </div><!-- /.screen -->
+        <div class="cta">
+          <a class="btn main" href="#contact">Hire me <em>&rarr;</em></a>
+          <a class="btn" href="#work">See my work</a>
+        </div><!-- /.cta -->
+      </section><!-- /.hero -->
+
+      <div class="portrait">
+        <img src="public/pranjal.png" alt="Portrait of Pranjal" onerror="this.style.display='none'">
+        <a class="ability" id="ability" href="#">My ability card</a>
+      </div><!-- /.portrait -->
+
+    </div><!-- /.main -->
+   <!-- Footer -->
+    <footer>
+      <span>Available for work</span>
+      <span>Remote-first, worldwide</span>
+      <span>Scroll to explore &darr;</span>
+    </footer>
+    <!-- About section -->
+    <section class="about" id="about">
+
+      <div class="about-photo">
+        <span class="label">About Me</span>
+        <img src="public/pranjal.png" alt="Pranjal at his desk">
+      </div><!-- /.about-photo -->
+
+      <div class="about-card">
+        <h2>Turning Ideas<br>Into Reality</h2>
+        <p>I'm Pranjal, a passionate developer and cybersecurity enthusiast...</p>
+        <div class="chips">
+          <span>Prayagraj, UP</span>
+          <span>The Creative Coder</span>
+          <span>Tech for a Better Tomorrow</span>
+        </div><!-- /.chips -->
+      </div><!-- /.about-card -->
+
+    </section><!-- /.about -->
+
+ 
+
+  </div><!-- /.wrap -->
+
+  <!-- Pull cord: drag down and release to switch theme -->
+  <canvas id="cordCanvas" width="240" height="520" aria-hidden="true"></canvas>
+  <div class="cord" id="cord" role="button" tabindex="0"
+    aria-label="Pull cord to switch light and dark theme"></div>
+
+  <!-- Scripts -->
+  <script src="scripts/menu.js"></script>
+  <script src="scripts/scroll-reveal.js"></script>
+  <script src="scripts/theme-pull-card.js"></script>
+  <script src="scripts/local-time.js"></script>
+  <script src="scripts/type-role.js"></script>
+
+
+
+
+
+
+
+  <script>
+    const ability = document.getElementById('ability');
+    if (ability) {
+      ability.addEventListener('click', e => {
+        e.preventDefault();
+        alert('Coming soon!');
+      });
+    }
+  </script>
+
+</body>
+</html>

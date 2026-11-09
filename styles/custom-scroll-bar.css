@@ -1,0 +1,28 @@
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #171413;
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+    background: #A47753;
+    border-radius: 10px;
+    border: 2px solid #171413;
+}
+
+/* Hover Effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #C08D65;
+}
+
+/* Firefox Support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #A47753 #171413;
+}
