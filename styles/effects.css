@@ -1,0 +1,105 @@
+/* ---------- Smooth scrolling ---------- */
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+/* Lenis handles smoothing itself; native smooth would fight it */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Glitch heading ---------- */
+h1 .glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--text);
+    margin-top: 0;
+}
+h1 .glitch::before,
+h1 .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+h1 .glitch::before { color: #ff2e63; }
+h1 .glitch::after  { color: #08d9d6; }
+
+/* Loading burst: strong glitch while the text decodes */
+h1 .glitch.is-loading { animation: glitch-skew .35s steps(2, end) infinite; }
+h1 .glitch.is-loading::before {
+    opacity: .85; transform: translate(-3px, 0);
+    animation: glitch-clip-a .9s steps(1, end) infinite;
+}
+h1 .glitch.is-loading::after {
+    opacity: .85; transform: translate(3px, 0);
+    animation: glitch-clip-b .9s steps(1, end) infinite;
+}
+
+/* After loading: a quick, subtle glitch now and then */
+h1 .glitch.is-idle::before,
+h1 .glitch.is-idle::after { animation: glitch-flash 6s steps(1, end) infinite; }
+h1 .glitch.is-idle::after { animation-delay: .08s; }
+
+@keyframes glitch-skew {
+    0%   { transform: skew(0deg); }
+    50%  { transform: skew(-4deg); }
+    100% { transform: skew(3deg); }
+}
+@keyframes glitch-clip-a {
+    0%   { clip-path: inset(10% 0 70% 0); }
+    20%  { clip-path: inset(60% 0 10% 0); }
+    40%  { clip-path: inset(30% 0 40% 0); }
+    60%  { clip-path: inset(80% 0 2% 0); }
+    80%  { clip-path: inset(0 0 85% 0); }
+    100% { clip-path: inset(45% 0 35% 0); }
+}
+@keyframes glitch-clip-b {
+    0%   { clip-path: inset(70% 0 5% 0); }
+    25%  { clip-path: inset(15% 0 60% 0); }
+    50%  { clip-path: inset(50% 0 25% 0); }
+    75%  { clip-path: inset(5% 0 80% 0); }
+    100% { clip-path: inset(35% 0 45% 0); }
+}
+@keyframes glitch-flash {
+    0%, 94%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+    95% { opacity: .8; clip-path: inset(20% 0 55% 0); transform: translate(-3px, 0); }
+    97% { opacity: .8; clip-path: inset(65% 0 10% 0); transform: translate(3px, 0); }
+    99% { opacity: .8; clip-path: inset(40% 0 35% 0); transform: translate(-2px, 0); }
+}
+
+/* ---------- Background brand text (bottom of page) ---------- */
+.bg-brand {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: -1;                      /* behind all page content */
+    transform: translate(-50%, -50%) scale(.94);
+    width: 100vw;
+    text-align: center;
+    white-space: nowrap;
+    font-family: "Anton", sans-serif;
+    font-size: 9vw;
+    line-height: 1;
+    letter-spacing: .01em;
+    color: var(--text);
+    opacity: 0;                       /* JS raises this as you near the bottom */
+    pointer-events: none;
+    user-select: none;
+    will-change: opacity, transform;
+}
+.end-zone { height: 65vh; }
+
+@media (max-width: 700px) {
+    .bg-brand { font-size: 8.6vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+    h1 .glitch, h1 .glitch::before, h1 .glitch::after { animation: none !important; }
+}
+
+/* ---------- Theme curtain (pull cord) ---------- */
+/* We animate the new theme's snapshot ourselves, so turn off the browser's default cross-fade */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+/* no colour fades while the curtain is moving */
+.theme-curtain *, .theme-curtain body { transition: none !important; }

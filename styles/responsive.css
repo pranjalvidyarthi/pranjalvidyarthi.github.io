@@ -1,0 +1,7 @@
+@media (max-width:900px) {
+
+    .about {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
