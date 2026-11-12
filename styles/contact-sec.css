@@ -1,0 +1,479 @@
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.contact-banner {
+    --contact-accent: #5279b4;
+    --contact-accent-light: #788cce;
+
+    width: 100%;
+    padding: 90px 7%;
+    font-family: inherit;
+    color: inherit;
+    overflow: hidden;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   TOP HEADER
+======================================== */
+
+.contact-top,
+.contact-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    background: #70b98a;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(112, 185, 138, 0.12);
+}
+
+.contact-number {
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: 0.55;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 0;
+}
+
+/* LEFT CONTENT */
+
+.contact-left {
+    position: relative;
+    z-index: 1;
+}
+
+
+.contact-left h1 {
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 1.05;
+    letter-spacing: -4px;
+    font-weight: 750;
+    margin: 0;
+}
+
+.contact-left h1 span {
+    /* opacity: 0.5; */
+    color: black;
+}
+
+.contact-description {
+    max-width: 430px;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-top: 28px;
+    opacity: 0.7;
+}
+
+/* ========================================
+   EMAIL BUTTON
+======================================== */
+
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+
+    padding: 15px 22px;
+    margin-top: 25px;
+
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    border: 1px solid currentColor;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.contact-email:hover {
+    color: var(--contact-accent);
+    border-color: var(--contact-accent);
+    transform: translateY(-3px);
+}
+
+.email-arrow {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.contact-email:hover .email-arrow {
+    transform: translate(4px, -4px);
+}
+
+/* ========================================
+   RIGHT PROFILE CARD
+======================================== */
+
+.contact-right {
+    position: relative;
+    padding: 35px;
+
+    border: 1px solid rgba(82, 105, 180, 0.3);
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Decorative accent line */
+
+.contact-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35px;
+
+    width: 65px;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--contact-accent),
+        var(--contact-accent-light)
+    );
+
+    border-radius: 0 0 5px 5px;
+}
+
+.contact-right:hover {
+    border-color: rgba(82, 105, 180, 0.65);
+    box-shadow: 0 10px 35px rgba(82, 105, 180, 0.07);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   PROFILE INFORMATION
+======================================== */
+
+.contact-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Profile Image */
+
+.profile-avatar {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    padding: 3px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--contact-accent),
+        var(--contact-accent-light),
+        var(--contact-accent)
+    );
+}
+
+.profile-avatar img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+
+    border: 2px solid #eee9e3;
+}
+
+.profile-info {
+    min-width: 0;
+}
+
+.profile-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.profile-info p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.65;
+}
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.contact-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 30px 0;
+
+    background: currentColor;
+    opacity: 0.18;
+}
+
+/* ========================================
+   SOCIAL LINKS HEADING
+======================================== */
+
+.social-heading {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.contact-socials {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-socials a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 0;
+
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+
+    border-bottom: 1px solid rgba(100, 100, 100, 0.25);
+
+    transition:
+        color 0.25s ease,
+        padding 0.25s ease;
+}
+
+.contact-socials a:last-child {
+    border-bottom: none;
+}
+
+.contact-socials a span:last-child {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+}
+
+.contact-socials a:hover {
+    color: var(--contact-accent);
+    padding-left: 8px;
+}
+
+.contact-socials a:hover span:last-child {
+    color: var(--contact-accent-light);
+    transform: translate(3px, -3px);
+}
+
+/* ========================================
+   BOTTOM FOOTER
+======================================== */
+
+.contact-bottom {
+    padding-top: 25px;
+    border-top: 1px solid rgba(100, 100, 100, 0.45);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .contact-content {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+    }
+
+    .contact-right {
+        padding: 28px;
+    }
+
+    .contact-left h1 {
+        font-size: clamp(45px, 6vw, 65px);
+        letter-spacing: -2px;
+    }
+
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .contact-banner {
+        padding: 65px 6%;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 70px 0;
+    }
+
+    .contact-left h1 {
+        font-size: clamp(48px, 11vw, 70px);
+        letter-spacing: -2px;
+    }
+
+    .contact-description {
+        font-size: 14px;
+    }
+
+    .contact-right {
+        width: 100%;
+        padding: 28px;
+    }
+
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .contact-banner {
+        padding: 50px 5%;
+    }
+
+    .contact-top {
+        align-items: flex-start;
+    }
+
+    .contact-tag {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .contact-number {
+        font-size: 9px;
+    }
+
+    .contact-content {
+        padding: 55px 0;
+        gap: 40px;
+    }
+
+    .contact-left h1 {
+        font-size: clamp(43px, 12vw, 58px);
+        letter-spacing: -2px;
+    }
+
+    .contact-right {
+        padding: 25px 20px;
+    }
+
+    .contact-right::before {
+        left: 20px;
+    }
+
+    .profile-avatar {
+        width: 52px;
+        height: 52px;
+    }
+
+    .profile-info h3 {
+        font-size: 14px;
+    }
+
+    .profile-info p {
+        font-size: 11px;
+    }
+
+    .contact-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+}
+
+/* Animated underline */
+
+.great-text {
+    position: relative;
+    display: inline-block;
+    opacity: 0.55;
+}
+
+.great-text::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: 5px;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #8f300a,
+        #9878ce
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    animation: underlineReveal 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes underlineReveal {
+    to {
+        transform: scaleX(1);
+    }
+}

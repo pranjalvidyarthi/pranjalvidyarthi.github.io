@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             category: "REAL-TIME CHAT APP",
 
-            image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85",
+            image: "../public/project-icon/vichat-icon.svg",
 
             description:
                 "ViChat is a real-time messaging web application built with Next.js, TypeScript, Clerk, and Stream Chat. It is designed to make it easy for registered users to discover other users and communicate through one-to-one conversations.",

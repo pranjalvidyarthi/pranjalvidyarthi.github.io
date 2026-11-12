@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pranjal Vidyarthi — The Creative Coder</title>
 
+   <script>
+    (function () {
+      try {
+        var d = document.documentElement;
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!sessionStorage.getItem("sl-seen") && !reduce) {
+          d.classList.add("sl-active");
+          // Hard failsafe: the loader can never block the site for more than 12s.
+          setTimeout(function () { d.classList.remove("sl-active"); }, 12000);
+        }
+      } catch (e) { /* storage blocked: skip the loader */ }
+    })();
+
+  </script>
+  <link rel="stylesheet" href="styles/loader.css">
   <!-- Requirements -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
 <script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
@@ -25,14 +40,37 @@
   <link rel="stylesheet" href="styles/responsive.css">
   
   <link rel="stylesheet" href="styles/projects.css">
+  <link rel="stylesheet" href="styles/contact-sec.css">
   <link rel="stylesheet" href="styles/nav-bar.css">
-
-
-
 
 </head>
 
 <body>
+
+<!-- Website Preloader -->
+
+   <div id="sl-loader" class="sl-loader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="sl-stars" aria-hidden="true"></div>
+    <div class="sl-stage" aria-hidden="true">
+      <div class="sl-glow"></div>
+      <div class="sl-disk"></div>
+      <div class="sl-ring"></div>
+      <div class="sl-core">
+        <div class="sl-photo">
+          <!-- Put your photo at images/profile.jpg (square crop works best) -->
+          <img src="public/pranjal.png" alt="" width="400" height="400" decoding="async" fetchpriority="high">
+        </div>
+      </div>
+      <div class="sl-particles"></div>
+    </div>
+    <div class="sl-text">
+      <p>Entering my digital universe</p>
+      <span class="sl-bar" aria-hidden="true"><i></i></span>
+    </div>
+  </div>
+
+
+
   <!-- Brand text that fades in behind the page near the bottom -->
   <div class="bg-brand" id="bgBrand" aria-hidden="true">&lt;/&gt;TheCreativeCoder&lt;/&gt;</div>
   <div class="wrap">
@@ -43,7 +81,7 @@
       <ul id="menu">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Me</a></li>
-        <li><a href="#ux">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
@@ -63,7 +101,7 @@
     <!-- <div class="hero-overlay"></div> -->
 
       <section class="hero" id="home">
-        <h1>Hi, I'm Pranjal.<span>I am a</span></h1>
+        <h1 class="reveal from-right">Hi, I'm Pranjal.<span>I am a</span></h1>
 
         <div class="monitor" role="img" aria-label="Pranjal is a YouTuber, Web Developer, Photographer and Video Editor">
           <div class="screen" aria-hidden="true">
@@ -73,7 +111,7 @@
           </div><!-- /.screen -->
         <div class="cta">
           <a class="btn main" href="#contact">Hire me <em>&rarr;</em></a>
-          <a class="btn" href="#work">See my work</a>
+          <a class="btn" href="https://www.youtube.com/@the_creative_coder" target="_blank">See my channel</a>
         </div><!-- /.cta -->
       </section><!-- /.hero -->
 
@@ -94,7 +132,7 @@
 
       <div class="about-photo reveal from-left">
         <span class="label">About Me</span>
-        <img src="public/pranjal.png" alt="Pranjal at his desk">
+        <img src="public/about-section-img/pranjal-about.png" alt="Pranjal at his desk">
       </div><!-- /.about-photo -->
 
       <div class="about-card reveal from-right ">
@@ -119,7 +157,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
     <hr style="color: white; border: 2px solid rgb(95, 99, 44);">
  
-<section class="skills" id="skills">
+<section class="skills reveal from-left" id="skills">
   <h2>Skills</h2>
   <p>What I build with, and how confident I am in each.</p>
  
@@ -228,9 +266,9 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
 
 </section>
- 
+ <br><br>
 
-
+<hr style="color:rgb(221, 153, 50); border: 2px solid;">
 
 <!-- Projects section  -->
  <main class="projects-section" id="projects">
@@ -256,7 +294,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
       <article class="project-card reveal" data-category="web">
         <a class="project-image image-two" href="#" aria-label="Open ViChat project">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Laptop showing a digital workspace" loading="lazy" />
+          <img src="public/project-icon/vichat-icon.svg" alt="Laptop showing a digital workspace" loading="lazy" />
           <span class="image-index">01 / 01</span>
           <span class="image-arrow">↗</span>
           <span class="image-caption">REAL-TIME CHAT APP</span>
@@ -312,6 +350,84 @@ Web development projects using HTML, CSS, JavaScript, React.js
     </section>
   </div>
 
+<br>
+<hr style="color: wheat; border: 1.2px solid;">
+
+
+<section class="contact-banner" id="contact">
+  <div class="contact-container">
+
+
+    <div class="contact-content">
+      <div class="contact-left">
+        <p class="contact-eyebrow">HAVE A PROJECT IN MIND?</p>
+
+        <h1>
+          Let's build<br>
+          something <span class="great-text">AMAZING.</span>
+        </h1>
+
+        <p class="contact-description">
+          Have an idea, opportunity, or just want to talk about
+          technology? My inbox is always open.
+        </p>
+
+        <a href="mailto:pranjalvidyarthiwork@gmail.com"
+           class="contact-email">
+          <span>Let's talk</span>
+          <span class="email-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="contact-right">
+   
+      <div class="contact-profile">
+        <div class="profile-avatar">
+          <img src="public/pranjal.png" alt="Pranjal Vidyarthi">
+        </div>
+
+        <div class="profile-info">
+          <h3>Pranjal Vidyarthi</h3>
+          <p>Developer & Content Creator</p>
+        </div>
+      </div>
+
+        <div class="contact-divider"></div>
+
+        <p class="social-heading">FIND ME ON</p>
+
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/pranjal-vidyarthi/"
+             target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn</span><span>↗</span>
+          </a>
+
+          <a href="https://github.com/pranjalvidyarthi"
+             target="_blank" rel="noopener noreferrer">
+            <span>GitHub</span><span>↗</span>
+          </a>
+
+          <a href="https://www.youtube.com/@the_creative_coder"
+             target="_blank" rel="noopener noreferrer">
+            <span>YouTube</span><span>↗</span>
+          </a>
+
+          <a href="mailto:pranjalvidyarthiwork@gmail.com">
+            <span>Email</span><span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-bottom">
+      <span>You can expect a response within 1-2 hours.</span>
+    
+    </div>
+
+  </div>
+</section>
+
+
    <!-- Footer -->
     <footer>
       <span>Created by Pranjal Vidyarthi</span>
@@ -324,6 +440,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
     aria-label="Pull cord to switch light and dark theme"></div>
 
   <!-- Scripts -->
+   <script src="scripts/loader.js"></script>
   <script src="scripts/skills-progress-animation.js"></script>
   <script src="scripts/projects-card.js"></script>
   <script src="scripts/menu.js"></script>
@@ -331,8 +448,6 @@ Web development projects using HTML, CSS, JavaScript, React.js
   <script src="scripts/theme-pull-card.js"></script>
   <script src="scripts/local-time.js"></script>
   <script src="scripts/type-role.js"></script>
-  <!-- <script src="scripts/remove-class.js"></script> -->
-
 
   <script src="scripts/bottom-brand.js"></script>
 

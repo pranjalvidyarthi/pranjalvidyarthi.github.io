@@ -552,6 +552,11 @@ footer {
 .about-photo img {
     width: 100%;
     border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.about-photo:hover{
+    transform: scale(1.05);
 }
 
 .about-photo .label {

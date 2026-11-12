@@ -1,12 +1,23 @@
-const items = document.querySelectorAll('.reveal');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);   // animate only once
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".reveal");
+
+    if (!("IntersectionObserver" in window)) {
+        items.forEach(el => el.classList.add("show"));
+        return;
     }
-  });
-}, { threshold: 0.3});                  // trigger when 15% is visible
 
-items.forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    items.forEach(el => observer.observe(el));
+});
