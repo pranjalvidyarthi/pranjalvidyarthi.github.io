@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles/responsive.css">
   
   <link rel="stylesheet" href="styles/projects.css">
-
+  <link rel="stylesheet" href="styles/nav-bar.css">
 
 
 
@@ -54,9 +54,15 @@
 
     <!-- Main (hero) section -->
     <div class="hero-main">
+    <!-- Background Image -->
+    <!-- <div class="hero-image"> -->
+        <!-- <img src="public/pranjal.png" alt="Pranjal" class="responsive-bg-image"> -->
+    <!-- </div> -->
+
+    <!-- Dark Overlay -->
+    <!-- <div class="hero-overlay"></div> -->
 
       <section class="hero" id="home">
-        <p class="tag">Independent Freelancer</p>
         <h1>Hi, I'm Pranjal.<span>I am a</span></h1>
 
         <div class="monitor" role="img" aria-label="Pranjal is a YouTuber, Web Developer, Photographer and Video Editor">
@@ -186,8 +192,41 @@ Web development projects using HTML, CSS, JavaScript, React.js
       </div>
       <div class="track" role="progressbar" aria-label="Python" aria-valuemin="0" aria-valuemax="10" aria-valuenow="7"><div class="fill"></div></div>
     </div>
+
+    <!-- Video Editing -->
+<div class="skill video-editing" data-level="9">
+  <div class="skill-head">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="5" y="12" width="54" height="40" rx="7" fill="#8B5CF6"/>
+      <path d="M27 21L45 32L27 43V21Z" fill="#fff"/>
+      <path d="M12 7V12M23 7V12M34 7V12M45 7V12M12 52V57M23 52V57M34 52V57M45 52V57" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span class="name">Video Editing</span>
+    <span class="score"><span class="num">0</span><small>/10</small></span>
+  </div>
+  <div class="track" role="progressbar" aria-label="Video Editing" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8"><div class="fill"></div></div>
+</div>
+
+<!-- Photography -->
+<div class="skill photography" data-level="9.5">
+  <div class="skill-head">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="5" y="15" width="54" height="39" rx="7" fill="#64748B"/>
+      <path d="M20 15L24 8H40L44 15" fill="#64748B"/>
+      <circle cx="32" cy="34" r="12" fill="#fff"/>
+      <circle cx="32" cy="34" r="8" fill="#64748B"/>
+      <circle cx="32" cy="34" r="4" fill="#CBD5E1"/>
+      <circle cx="49" cy="23" r="2.5" fill="#fff"/>
+    </svg>
+    <span class="name">Photography</span>
+    <span class="score"><span class="num">0</span><small>/10</small></span>
+  </div>
+  <div class="track" role="progressbar" aria-label="Photography" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8"><div class="fill"></div></div>
+</div>
  
   </div>
+
+
 </section>
  
 
@@ -272,11 +311,6 @@ Web development projects using HTML, CSS, JavaScript, React.js
       </div>
     </section>
   </div>
- 
-
- 
-
-
 
    <!-- Footer -->
     <footer>
@@ -297,6 +331,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
   <script src="scripts/theme-pull-card.js"></script>
   <script src="scripts/local-time.js"></script>
   <script src="scripts/type-role.js"></script>
+  <!-- <script src="scripts/remove-class.js"></script> -->
 
 
   <script src="scripts/bottom-brand.js"></script>

@@ -1,4 +1,58 @@
-@media (max-width:900px) {
+
+@media (max-width: 900px) {
+
+    .portrait {
+        display: none;
+    }
+
+    .hero-main {
+        position: relative;
+        isolation: isolate;
+        height: auto;
+        min-height: 550px;
+        padding-bottom: 30px;
+        overflow: hidden;
+
+        background-image: none;
+    }
+
+    /* Background portrait */
+    .hero-main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+
+        background-image: url("../public/pranjal.png");
+        background-size: cover;
+        background-position: center 25%;
+        background-repeat: no-repeat;
+
+        filter: grayscale(100%) blur(3px);
+        opacity: 0.55;
+
+        transform: scale(1.04);
+    }
+
+    /* Dark overlay */
+    .hero-main::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        /* background: linear-gradient(
+            to bottom,
+            rgba(17, 17, 17, 0.25),
+            rgba(17, 17, 17, 0.85)
+        ); */
+    }
+
+    /* Keep text above image */
+    .hero-main > * {
+        position: relative;
+        z-index: 1;
+    }
 
     .about {
         display: flex;
@@ -8,4 +62,6 @@
     .about-photo {
         display: none;
     }
+
+    
 }
