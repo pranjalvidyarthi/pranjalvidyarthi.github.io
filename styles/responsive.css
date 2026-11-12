@@ -23,7 +23,7 @@
         inset: 0;
         z-index: -2;
 
-        background-image: url("../public/pranjal.png");
+        /* background-image: url("../public/pranjal.png"); */
         background-size: cover;
         background-position: center 25%;
         background-repeat: no-repeat;
