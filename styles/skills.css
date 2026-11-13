@@ -1,87 +1,284 @@
-  :root {
-    --bg: #FBF6EE;
-    --card: #FFFFFF;
-    --text: #1A1A1A;
-    --muted: #6B7280;
-    --track: #EDE6DA;
-    --border: #E7DFD1;
-    --accent: #3B82F6;
+
+/* ================================
+   THEME VARIABLES
+================================ */
+
+:root {
+  --bg: #FBF6EE;
+  --card: #FFFFFF;
+  --text: #1A1A1A;
+  --muted: #6B7280;
+  --track: #EDE6DA;
+  --border: #E7DFD1;
+  --accent: #3B82F6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14120F;
+    --card: #1D1A16;
+    --text: #F5EFE6;
+    --muted: #9CA3AF;
+    --track: #2B2721;
+    --border: #2F2A23;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #14120F; --card: #1D1A16; --text: #F5EFE6;
-      --muted: #9CA3AF; --track: #2B2721; --border: #2F2A23;
-    }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14120F;
+  --card: #1D1A16;
+  --text: #F5EFE6;
+  --muted: #9CA3AF;
+  --track: #2B2721;
+  --border: #2F2A23;
+}
+
+
+/* ================================
+   SKILLS SECTION
+================================ */
+
+.skills {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.skills h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.skills > p {
+  color: var(--muted);
+  margin: 6px 0 36px;
+}
+
+
+/* ================================
+   CIRCULAR SKILL GRID
+================================ */
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  justify-items: center;
+  align-items: center;
+}
+
+
+/* ================================
+   SKILL CARD
+================================ */
+
+.skill {
+  --c1: var(--accent);
+
+  width: 150px;
+  height: 150px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  border-color: var(--c1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+}
+
+
+/* ================================
+   CIRCULAR PROGRESS RING
+================================ */
+
+.skill-circle {
+  --progress: 0%;
+
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  border-radius: 50%;
+  border: 5px solid transparent;
+
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    conic-gradient(
+      from -90deg,
+      var(--c1) 0 var(--progress),
+      var(--border) var(--progress) 100%
+    ) border-box;
+
+  position: relative;
+}
+
+
+/* ================================
+   SKILL LOGO
+================================ */
+
+.skill-circle .logo {
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+}
+
+
+/* ================================
+   SKILL NAME
+================================ */
+
+.skill-circle .name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.3;
+}
+
+
+/* ================================
+   SKILL SCORE
+================================ */
+
+.skill-circle .score {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.skill-circle .score small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+
+/* ================================
+   INDIVIDUAL BRAND COLOURS
+================================ */
+
+.html {
+  --c1: #E34F26;
+}
+
+.css {
+  --c1: #1572B6;
+}
+
+.js {
+  --c1: #F0DB4F;
+}
+
+.react {
+  --c1: #20B8E0;
+}
+
+.python {
+  --c1: #3776AB;
+}
+
+.video-editing {
+  --c1: #8B5CF6;
+}
+
+.photography {
+  --c1: #64748B;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Tablets */
+
+@media (max-width: 768px) {
+  .skill-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
   }
-  :root[data-theme="dark"] {
-    --bg: #14120F; --card: #1D1A16; --text: #F5EFE6;
-    --muted: #9CA3AF; --track: #2B2721; --border: #2F2A23;
-  }
- 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    line-height: 1.5;
-    padding: 72px 20px;
-  }
- 
-  .skills { max-width: 760px; margin: 0 auto; }
-  .skills h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
-  .skills > p { color: var(--muted); margin: 6px 0 36px; }
- 
-  .skill-list { display: grid; gap: 14px; }
- 
+
   .skill {
-    --c1: var(--accent);
-    --c2: var(--accent);
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 20px;
-    transition: border-color .25s, transform .25s;
+    width: 140px;
+    height: 140px;
   }
-  .skill:hover { border-color: var(--c1); transform: translateY(-2px); }
- 
-  .skill-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-  .logo { width: 38px; height: 38px; flex: none; }
-  .name { font-weight: 600; font-size: 1.05rem; flex: 1; }
-  .score { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); }
-  .score small { color: var(--muted); font-weight: 500; }
- 
-  .track {
-    height: 12px;
-    background: var(--track);
-    border-radius: 99px;
-    overflow: hidden;
+
+  .skill-circle {
+    width: 120px;
+    height: 120px;
   }
-  .fill {
-    height: 100%;
-    width: 0;
-    border-radius: 99px;
-    background: linear-gradient(90deg, var(--c1), var(--c2));
-    background-size: 200% 100%;
-    transition: width 1.6s cubic-bezier(.22, 1, .36, 1);
-    position: relative;
+}
+
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .skill-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
   }
-  .fill::after { /* moving shine */
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
-    transform: translateX(-100%);
-    animation: shine 2.6s ease-in-out infinite 1.6s;
+
+  .skill {
+    width: 140px;
+    height: 140px;
   }
-  @keyframes shine { to { transform: translateX(100%); } }
- 
-  /* brand colours taken from each logo */
-  .html   { --c1: #E34F26; --c2: #F06529; }
-  .css    { --c1: #1572B6; --c2: #33A9DC; }
-  .js     { --c1: #F0DB4F; --c2: #F7C600; }
-  .react  { --c1: #20B8E0; --c2: #61DAFB; }
-  .python { --c1: #3776AB; --c2: #FFD43B; }
- 
-  @media (prefers-reduced-motion: reduce) {
-    .fill { transition: none; }
-    .fill::after { animation: none; }
+
+  .skill-circle {
+    width: 120px;
+    height: 120px;
   }
+}
+
+
+/* Small Mobile */
+
+@media (max-width: 340px) {
+  .skill {
+    width: 125px;
+    height: 125px;
+  }
+
+  .skill-circle {
+    width: 107px;
+    height: 107px;
+  }
+
+  .skill-circle .logo {
+    width: 25px;
+    height: 25px;
+  }
+
+  .skill-circle .name {
+    font-size: 11px;
+  }
+}
+
+
+/* ================================
+   REDUCED MOTION ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill {
+    transition: none;
+  }
+}

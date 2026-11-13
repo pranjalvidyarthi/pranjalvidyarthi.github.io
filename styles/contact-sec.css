@@ -86,7 +86,7 @@
 
 .contact-left h1 span {
     /* opacity: 0.5; */
-    color: black;
+     color: var(--contact-accent);
 }
 
 .contact-description {
@@ -443,37 +443,68 @@
 
 /* Animated underline */
 
+/* ========================================
+   AMAZING TEXT - DRAWING BOX ANIMATION
+======================================== */
+
 .great-text {
     position: relative;
     display: inline-block;
-    opacity: 0.55;
+    isolation: isolate;
+
+    color: var(--contact-accent);
+    opacity: 1;
+
+    padding: 5px 13px;
+    margin: 0 3px;
+
+    z-index: 1;
 }
+
+/* Animated rectangular border */
 
 .great-text::after {
     content: "";
+
     position: absolute;
+    inset: 0;
 
-    left: 0;
-    bottom: 5px;
+    border: 2px solid var(--contact-accent);
+    border-radius: 3px;
 
-    width: 100%;
-    height: 5px;
+    pointer-events: none;
 
-    background: linear-gradient(
-        90deg,
-        #8f300a,
-        #9878ce
-    );
+    clip-path: inset(0 100% 100% 0);
 
-    transform: scaleX(0);
-    transform-origin: left;
-
-    animation: underlineReveal 1s ease forwards;
+    animation: amazingBoxDraw 1.2s ease forwards;
     animation-delay: 0.5s;
 }
 
-@keyframes underlineReveal {
-    to {
-        transform: scaleX(1);
+/* Draw the rectangle */
+
+@keyframes amazingBoxDraw {
+    0% {
+        clip-path: inset(0 100% 100% 0);
+    }
+
+    25% {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    50% {
+        clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .great-text::after {
+        animation: none;
+        clip-path: none;
     }
 }
