@@ -2,9 +2,36 @@
 <html lang="en" data-theme="dark">
 
 <head>
+
+<!-- Website Information -->
+<title>The Creative Coder | Pranjal</title>
+
+<meta name="description"
+content="Explore The Creative Coder — projects, web development, cybersecurity and AI.">
+
+<!-- Website Icon -->
+<link rel="icon" type="image/png" href="public/pranjal.png">
+
+<!-- Open Graph: WhatsApp, LinkedIn, Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Creative Coder">
+<meta property="og:description"
+content="Explore projects, web development, cybersecurity and AI.">
+<meta property="og:url" content="https://pranjalvidyarthi.github.io/">
+<meta property="og:image"
+content="https://pranjalvidyarthi.github.io/public/images/preview.png">
+<meta property="og:site_name" content="The Creative Coder">
+
+<!-- Twitter / X Preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Creative Coder">
+<meta name="twitter:description"
+content="Explore projects, web development, cybersecurity and AI.">
+<meta name="twitter:image"
+content="https://pranjalvidyarthi.github.io/public/images/preview.png">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pranjal Vidyarthi — The Creative Coder</title>
 
    <script>
     (function () {
@@ -20,28 +47,51 @@
     })();
 
   </script>
-  <link rel="stylesheet" href="styles/loader.css">
-  <!-- Requirements -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
-<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/scroll-out@2.2.5/dist/scroll-out.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="styles/scroll-reveal.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/effects.css">
-  <link rel="stylesheet" href="styles/custom-scroll-bar.css">
-  <link rel="stylesheet" href="styles/skills.css">
-  <link rel="stylesheet" href="styles/responsive.css">
   
-  <link rel="stylesheet" href="styles/projects.css">
-  <link rel="stylesheet" href="styles/contact-sec.css">
-  <link rel="stylesheet" href="styles/nav-bar.css">
+<!-- Google Fonts: Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- External Libraries CSS -->
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
+
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="styles/button-slide-animation.css">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/loader.css">
+<link rel="stylesheet" href="styles/scroll-reveal.css">
+<link rel="stylesheet" href="styles/effects.css">
+<link rel="stylesheet" href="styles/skills.css">
+<link rel="stylesheet" href="styles/projects.css">
+<link rel="stylesheet" href="styles/contact-sec.css">
+<link rel="stylesheet" href="styles/nav-bar.css">
+<link rel="stylesheet" href="styles/custom-scroll-bar.css">
+<link rel="stylesheet" href="styles/responsive.css">
+
+<!-- External JavaScript Libraries -->
+
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/scroll-out@2.2.5/dist/scroll-out.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<!-- Your JavaScript -->
+<script src="scripts/main.js"></script>
+</body>
 
 </head>
 
@@ -107,11 +157,17 @@
           <div class="screen" aria-hidden="true">
             <div class="bar"><i></i><i></i><i></i><span>role.js</span></div>
             <p class="line">$ whoami</p>
-            <p class="type"><b>&gt;</b> <span id="typed"></span></p>
-          </div><!-- /.screen -->
+<p class="type">
+    <b>&gt;</b>
+    <span id="typed" data-splitting>Web Developer</span>
+</p>          </div><!-- /.screen -->
         <div class="cta">
           <a class="btn main" href="#contact">Hire me <em>&rarr;</em></a>
           <a class="btn" href="https://www.youtube.com/@the_creative_coder" target="_blank">See my channel</a>
+    </div>
+
+
+<a href="https://dribbble.com/YancyMin" class="dr-url" target="_blank"><img class="dr" src="https://cdn.dribbble.com/assets/logo-footer-hd-a05db77841b4b27c0bf23ec1378e97c988190dfe7d26e32e1faea7269f9e001b.png" alt=""></a>
         </div><!-- /.cta -->
       </section><!-- /.hero -->
 
@@ -161,7 +217,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
 <section class="skills reveal from-left" id="skills">
 
   <h2>Skills</h2>
-  <p>What I build with, and how confident I am in each.</p>
+  <p>What I build with, and how confident I am in each. <br>Click to See Details </p>
 
   <div class="skill-list">
 
@@ -437,9 +493,32 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
    <!-- Footer -->
     <footer>
-      <span>Created by Pranjal Vidyarthi</span>
+      <span>Created by Pranjal Vidyarthi <br> Last Updated 16 November 2026</span>
+      <div>
+      </div>
     </footer>
+
+<div class="social-share">
+    <span class="social-share__label">
+        <i class="fas fa-share-alt"></i>
+    </span>
+
+    <div class="social-share__icons">
+        <a href="https://www.instagram.com/vansh.x._x.vidyarthi/"
+           target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://github.com/"
+           target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</div>
   </div><!-- /.wrap -->
+
+ 
+
 
   <!-- Pull cord: drag down and release to switch theme -->
   <canvas id="cordCanvas" width="240" height="520" aria-hidden="true"></canvas>
@@ -447,14 +526,16 @@ Web development projects using HTML, CSS, JavaScript, React.js
     aria-label="Pull cord to switch light and dark theme"></div>
 
   <!-- Scripts -->
+     +<script src="scripts/type-role.js"></script>
    <script src="scripts/loader.js"></script>
+   
   <script src="scripts/skills-progress-animation.js"></script>
   <script src="scripts/projects-card.js"></script>
   <script src="scripts/menu.js"></script>
   <script src="scripts/scroll-reveal.js"></script>
   <script src="scripts/theme-pull-card.js"></script>
   <script src="scripts/local-time.js"></script>
-  <script src="scripts/type-role.js"></script>
+
 
   <script src="scripts/bottom-brand.js"></script>
 

@@ -1,19 +1,56 @@
-/* ---------- Typing roles (Typed.js) ---------- */
-const roles = ['Web Developer','YouTuber' ,'Photographer', 'Video Editor'];
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (reduce || typeof Typed === 'undefined') {
-    // no animation (or library failed to load): just show the first role
-    document.getElementById('typed').textContent = roles[0];
-} else {
-    new Typed('#typed', {
-        strings: roles,
-        typeSpeed: 80,        // ms per letter while typing
-        backSpeed: 45,        // ms per letter while deleting
-        startDelay: 500,
-        backDelay: 1500,      // pause before deleting
-        loop: true,
-        cursorChar: '█',
-        autoInsertCss: false  // we style the cursor ourselves
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+
+    const roles = [
+        { text: 'Web Developer', animation: 'jump' },
+        { text: 'YouTuber', animation: 'float' },
+        { text: 'Photographer', animation: 'jog' },
+        { text: 'Video Editor', animation: 'twirl' }
+    ];
+
+    const typed = document.getElementById('typed');
+
+    const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    // Check required elements and library
+    if (!typed || typeof Splitting === 'undefined') {
+        console.error('Splitting.js or #typed element not found!');
+        return;
+    }
+
+    let roleIndex = 0;
+
+    function animateRole() {
+
+        const currentRole = roles[roleIndex];
+
+        // Remove previous animation
+        typed.className = '';
+
+        // Replace previous text and generated characters
+        typed.textContent = currentRole.text;
+
+        // Split text into individual characters
+        Splitting({
+            target: typed,
+            by: 'chars'
+        });
+
+        // Apply animation class
+        typed.classList.add(currentRole.animation);
+
+        // Next role
+        roleIndex = (roleIndex + 1) % roles.length;
+    }
+
+    // Initial role
+    animateRole();
+
+    // Respect accessibility preferences
+    if (!reduceMotion) {
+        setInterval(animateRole, 3000);
+    }
+
+});
