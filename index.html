@@ -71,8 +71,10 @@ href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
 
 
 <!-- Custom CSS -->
+
 <link rel="stylesheet" href="styles/button-slide-animation.css">
 <link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/video-player.css">
 <link rel="stylesheet" href="styles/loader.css">
 <link rel="stylesheet" href="styles/scroll-reveal.css">
 <link rel="stylesheet" href="styles/effects.css">
@@ -207,6 +209,31 @@ Web development projects using HTML, CSS, JavaScript, React.js
           <span>The Creative Coder</span>
           <span>Tech for a Better Tomorrow</span>
         </div><!-- /.chips -->
+
+
+<!-- Intro Play button  -->
+
+
+                <div class="play-backdrop"></div>
+<div class="play-button">
+  <svg class="play-circles" viewBox="0 0 152 152">
+    <circle class="play-circle-01" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="343 343" cx="76" cy="76" r="72.7"/>
+    <circle class="play-circle-02" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="309 309" cx="76" cy="76" r="65.5"/>
+  </svg>
+  <div class="play-perspective">
+    <button class="play-close" aria-label="Close"></button>
+    <div class="play-triangle">
+      <div class="play-video">
+        <!-- Option B: replace UUXXXXXXXX with your uploads playlist ID -->
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UUXXXXXXXXXXXXXXXXXXXXXX"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- Option A: link to the channel -->
+        <a class="play-channel-link" href="https://www.youtube.com/@the_creative_coder"
+           target="_blank" rel="noopener noreferrer">Visit my channel ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
       </div><!-- /.about-card -->
 
     </section><!-- /.about -->
@@ -528,12 +555,14 @@ Web development projects using HTML, CSS, JavaScript, React.js
   <!-- Scripts -->
      +<script src="scripts/type-role.js"></script>
    <script src="scripts/loader.js"></script>
-   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+   <script src="scripts/video-player.js"></script>
   <script src="scripts/skills-progress-animation.js"></script>
   <script src="scripts/projects-card.js"></script>
   <script src="scripts/menu.js"></script>
   <script src="scripts/scroll-reveal.js"></script>
   <script src="scripts/theme-pull-card.js"></script>
+
   <script src="scripts/local-time.js"></script>
 
 
