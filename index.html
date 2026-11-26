@@ -10,7 +10,7 @@
 content="Explore The Creative Coder — projects, web development, cybersecurity and AI.">
 
 <!-- Website Icon -->
-<link rel="icon" type="image/png" href="public/pranjal.png">
+<link rel="icon" type="image/png" href="public/logo/the-cretive-coder-logo.png">
 
 <!-- Open Graph: WhatsApp, LinkedIn, Facebook -->
 <meta property="og:type" content="website">
@@ -111,7 +111,7 @@ href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
       <div class="sl-core">
         <div class="sl-photo">
           <!-- Put your photo at images/profile.jpg (square crop works best) -->
-          <img src="public/pranjal.png" alt="" width="400" height="400" decoding="async" fetchpriority="high">
+          <img src="public/logo/the-cretive-coder-logo.png" alt="" width="400" height="400" decoding="async" fetchpriority="high">
         </div>
       </div>
       <div class="sl-particles"></div>
@@ -214,27 +214,73 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
 <!-- Intro Play button  -->
 
+<div class="play-backdrop"></div>
 
-                <div class="play-backdrop"></div>
-<div class="play-button">
+<div class="play-button" aria-label="Play channel video" role="button" tabindex="0">
+
   <svg class="play-circles" viewBox="0 0 152 152">
-    <circle class="play-circle-01" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="343 343" cx="76" cy="76" r="72.7"/>
-    <circle class="play-circle-02" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="309 309" cx="76" cy="76" r="65.5"/>
+
+    <circle
+      class="play-circle-01"
+      fill="none"
+      stroke="#fff"
+      stroke-width="3"
+      stroke-dasharray="343 343"
+      cx="76"
+      cy="76"
+      r="72.7"
+    />
+
+    <circle
+      class="play-circle-02"
+      fill="none"
+      stroke="#fff"
+      stroke-width="3"
+      stroke-dasharray="309 309"
+      cx="76"
+      cy="76"
+      r="65.5"
+    />
+
   </svg>
-  <div class="play-perspective">
-    <button class="play-close" aria-label="Close"></button>
-    <div class="play-triangle">
-      <div class="play-video">
-        <!-- Option B: replace UUXXXXXXXX with your uploads playlist ID -->
-        <iframe src="https://www.youtube.com/embed/videoseries?list=UUXXXXXXXXXXXXXXXXXXXXXX"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <!-- Option A: link to the channel -->
-        <a class="play-channel-link" href="https://www.youtube.com/@the_creative_coder"
-           target="_blank" rel="noopener noreferrer">Visit my channel ↗</a>
-      </div>
-    </div>
-  </div>
+  <div class="play-icon">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M7 3.5L21 12L7 20.5V3.5Z" fill="white"/>
+  </svg>
 </div>
+
+  <div class="play-perspective">
+
+    <button class="play-close" aria-label="Close video"></button>
+
+    <div class="play-triangle">
+
+      <div class="play-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=UUXXXXXXXXXXXXXXXXXXXXXX"
+          title="The Creative Coder YouTube videos"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+        <a
+          class="play-channel-link"
+          href="https://www.youtube.com/@the_creative_coder"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit my channel ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
       </div><!-- /.about-card -->
 
     </section><!-- /.about -->
@@ -521,7 +567,7 @@ Web development projects using HTML, CSS, JavaScript, React.js
 
    <!-- Footer -->
     <footer>
-      <span>Created by Pranjal Vidyarthi <br> Last Updated 16 November 2026</span>
+      <span>Created by Pranjal Vidyarthi <br> Last Updated 26 November 2026 <br><a href="" id="t">Terms and Condition (Freelancing)</a></span>
       <div>
       </div>
     </footer>
@@ -580,6 +626,14 @@ Web development projects using HTML, CSS, JavaScript, React.js
     const ability = document.getElementById('ability');
     if (ability) {
       ability.addEventListener('click', e => {
+        e.preventDefault();
+        alert('Coming soon!');
+      });
+    }
+
+    const termns_and_condition = documentElementById('t');
+    if (termns_and_condition) {
+      termns_and_condition.addEventListener('click' , e => {
         e.preventDefault();
         alert('Coming soon!');
       });

@@ -104,7 +104,7 @@ function tryExit() {
     loader.classList.add("sl-exit");
 
     // Remove loader after the animation finishes.
-    setTimeout(finish, CONFIG.exitDuration + 150);
+    setTimeout(finish, CONFIG.exitDuration + 120);
 }
 
 
