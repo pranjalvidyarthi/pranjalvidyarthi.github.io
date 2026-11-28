@@ -1,0 +1,757 @@
+
+/* =====================================================================
+   EVENT HORIZON — PRELOADER
+   Theme: Black / Violet / Electric Blue
+   Namespace: sl-
+   Compatible with existing loader.js and index.html
+   ===================================================================== */
+
+
+/* =====================================================================
+   1. CUSTOM PROPERTY
+   ===================================================================== */
+
+@property --sl-hole {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+
+/* =====================================================================
+   2. MAIN LOADER
+   ===================================================================== */
+
+html.sl-active {
+    overflow: hidden;
+}
+
+.sl-loader {
+    /* Animation timing */
+    --sl-intro: 3400ms;
+    --sl-exit: 1300ms;
+
+    /* Black hole dimensions */
+    --sl-size: clamp(260px, 64vmin, 520px);
+
+    /* Color palette */
+    --sl-bg: #000000;
+    --sl-fg: #ffffff;
+    --sl-accent: #8b5cf6;
+    --sl-core: #000000;
+    --sl-glow: 35%;
+
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 2147483000;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: var(--sl-bg);
+    color: var(--sl-fg);
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+html.sl-active .sl-loader {
+    display: block;
+}
+
+
+/* Optional space theme */
+.sl-loader[data-theme="space"] {
+    --sl-bg: #000000;
+    --sl-fg: #ffffff;
+    --sl-accent: #8b5cf6;
+    --sl-core: #000000;
+    --sl-glow: 35%;
+}
+
+
+/* Smaller screens */
+@media (max-height: 520px) {
+    .sl-loader {
+        --sl-size: clamp(170px, 50vmin, 520px);
+    }
+}
+
+
+/* =====================================================================
+   3. BACKGROUND STARS
+   ===================================================================== */
+
+.sl-stars {
+    position: absolute;
+    inset: 0;
+
+    animation:
+        sl-stars-in calc(var(--sl-intro) * 1.2)
+        ease-out both;
+}
+
+.sl-star {
+    position: absolute;
+
+    width: var(--s);
+    height: var(--s);
+
+    border-radius: 50%;
+    background: #ffffff;
+
+    opacity: var(--o);
+
+    box-shadow:
+        0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes sl-stars-in {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+
+/* =====================================================================
+   4. BLACK HOLE STAGE
+   ===================================================================== */
+
+.sl-stage {
+    position: absolute;
+
+    left: 50%;
+    top: 46%;
+
+    width: var(--sl-size);
+    height: var(--sl-size);
+
+    margin:
+        calc(var(--sl-size) / -2)
+        0
+        0
+        calc(var(--sl-size) / -2);
+
+    perspective: 900px;
+
+    will-change: transform, opacity;
+}
+
+
+/* =====================================================================
+   5. GRAVITATIONAL GLOW
+   ===================================================================== */
+
+.sl-glow {
+    position: absolute;
+
+    inset: -30%;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.28) 0%,
+        rgba(59, 130, 246, 0.16) 30%,
+        rgba(255, 255, 255, 0.06) 48%,
+        transparent 72%
+    );
+
+    filter: blur(18px);
+
+    animation:
+        sl-grow-in calc(var(--sl-intro) * 0.7)
+        ease-out
+        calc(var(--sl-intro) * 0.2)
+        both;
+}
+
+
+/* =====================================================================
+   6. ACCRETION DISK
+   ===================================================================== */
+
+.sl-disk {
+    position: absolute;
+    inset: 0;
+
+    animation:
+        sl-disk-in calc(var(--sl-intro) * 0.85)
+        cubic-bezier(0.22, 0.8, 0.2, 1)
+        calc(var(--sl-intro) * 0.15)
+        both;
+}
+
+.sl-disk::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+        transparent 0deg,
+        #312e81 35deg,
+        #6366f1 75deg,
+        #c4b5fd 110deg,
+        #ffffff 135deg,
+        #7c3aed 165deg,
+        transparent 210deg,
+        #2563eb 260deg,
+        #a78bfa 300deg,
+        transparent 360deg
+    );
+
+    -webkit-mask-image: radial-gradient(
+        circle,
+        transparent 44%,
+        #000000 49%,
+        #000000 66%,
+        transparent 78%
+    );
+
+    mask-image: radial-gradient(
+        circle,
+        transparent 44%,
+        #000000 49%,
+        #000000 66%,
+        transparent 78%
+    );
+
+    animation: sl-spin 9s linear infinite;
+}
+
+@keyframes sl-disk-in {
+    from {
+        transform: rotateX(72deg) scale(0.1);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateX(72deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes sl-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================================
+   7. PHOTON RING
+   ===================================================================== */
+
+.sl-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: calc(var(--sl-size) * 0.5);
+    aspect-ratio: 1;
+
+    margin:
+        calc(var(--sl-size) * -0.25)
+        0
+        0
+        calc(var(--sl-size) * -0.25);
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(196, 181, 253, 0.85);
+
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.9),
+        0 0 25px rgba(99, 102, 241, 0.6),
+        0 0 50px rgba(59, 130, 246, 0.35);
+
+    animation:
+        sl-ring-in calc(var(--sl-intro) * 0.8)
+        cubic-bezier(0.22, 0.8, 0.2, 1)
+        calc(var(--sl-intro) * 0.2)
+        both;
+}
+
+@keyframes sl-ring-in {
+    from {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+}
+
+
+/* =====================================================================
+   8. BLACK HOLE CORE
+   ===================================================================== */
+
+.sl-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: calc(var(--sl-size) * 0.42);
+    aspect-ratio: 1;
+
+    margin:
+        calc(var(--sl-size) * -0.21)
+        0
+        0
+        calc(var(--sl-size) * -0.21);
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #000000 55%,
+        #050505 72%,
+        #17102c 100%
+    );
+
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.18),
+        0 0 20px rgba(139, 92, 246, 0.45),
+        0 0 45px rgba(99, 102, 241, 0.3);
+
+    animation:
+        sl-core-in var(--sl-intro)
+        cubic-bezier(0.22, 0.8, 0.2, 1)
+        both;
+}
+
+@keyframes sl-core-in {
+    0% {
+        transform: scale(0.04);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================================
+   9. PROFILE PHOTO
+   ===================================================================== */
+
+.sl-photo {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: #ffffff;
+
+    animation:
+        sl-photo-in calc(var(--sl-intro) * 0.55)
+        cubic-bezier(0.2, 0.8, 0.2, 1)
+        calc(var(--sl-intro) * 0.45)
+        both;
+}
+
+.sl-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #ffffff;
+}
+
+/* Subtle circular edge */
+.sl-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle closest-side,
+        transparent 48%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+
+    pointer-events: none;
+}
+
+@keyframes sl-photo-in {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+        filter: blur(10px) brightness(0.4);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: none;
+    }
+}
+
+
+/* =====================================================================
+   10. SPIRAL PARTICLES
+   ===================================================================== */
+
+.sl-particles {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.sl-p {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: var(--s);
+    height: var(--s);
+
+    margin:
+        calc(var(--s) / -2)
+        0
+        0
+        calc(var(--s) / -2);
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    opacity: 0;
+
+    will-change: transform, opacity;
+
+    box-shadow:
+        0 0 8px rgba(139, 92, 246, 0.8);
+
+    animation:
+        sl-spiral var(--d)
+        cubic-bezier(0.45, 0.05, 0.9, 0.6)
+        calc(var(--sl-intro) * 0.15 + var(--dl) * 1s)
+        infinite;
+}
+
+@keyframes sl-spiral {
+    0% {
+        transform:
+            rotate(var(--a))
+            translateX(calc(var(--sl-size) * var(--r)))
+            scale(1);
+
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.85;
+    }
+
+    85% {
+        opacity: 0.85;
+    }
+
+    100% {
+        transform:
+            rotate(calc(var(--a) + 420deg))
+            translateX(calc(var(--sl-size) * 0.12))
+            scale(0.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================================
+   11. GLOW ANIMATION
+   ===================================================================== */
+
+@keyframes sl-grow-in {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================================
+   12. LOADER TEXT
+   ===================================================================== */
+
+.sl-text {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: clamp(40px, 12vh, 120px);
+
+    padding: 0 24px;
+
+    text-align: center;
+
+    animation:
+        sl-rise calc(var(--sl-intro) * 0.4)
+        ease-out
+        calc(var(--sl-intro) * 0.55)
+        both;
+}
+
+.sl-text p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+
+/* =====================================================================
+   13. PROGRESS BAR
+   ===================================================================== */
+
+.sl-bar {
+    display: block;
+
+    width: clamp(96px, 28vw, 140px);
+    height: 1px;
+
+    margin: 18px auto 0;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.sl-bar i {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #c4b5fd,
+        #ffffff
+    );
+
+    transform-origin: 0 50%;
+
+    animation:
+        sl-bar var(--sl-intro)
+        cubic-bezier(0.3, 0.6, 0.2, 1)
+        both;
+}
+
+@keyframes sl-bar {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(0.9);
+    }
+}
+
+@keyframes sl-rise {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* =====================================================================
+   14. EXIT ANIMATION
+   Circular aperture opens and reveals the website.
+   ===================================================================== */
+
+.sl-loader.sl-exit {
+    --sl-hole: 90vmax;
+
+    -webkit-mask-image: radial-gradient(
+        circle at 50% 46%,
+        transparent calc(var(--sl-hole) - 1px),
+        #000000 var(--sl-hole)
+    );
+
+    mask-image: radial-gradient(
+        circle at 50% 46%,
+        transparent calc(var(--sl-hole) - 1px),
+        #000000 var(--sl-hole)
+    );
+
+    transition:
+        --sl-hole
+        calc(var(--sl-exit) * 0.82)
+        cubic-bezier(0.6, 0, 0.25, 1)
+        calc(var(--sl-exit) * 0.2);
+}
+
+
+/* Black hole falls inward */
+.sl-loader.sl-exit .sl-stage {
+    animation:
+        sl-fall var(--sl-exit)
+        cubic-bezier(0.7, 0, 0.84, 0)
+        both;
+}
+
+/* Background stars disappear */
+.sl-loader.sl-exit .sl-stars {
+    animation:
+        sl-stars-out var(--sl-exit)
+        ease-in
+        both;
+}
+
+/* Text fades away */
+.sl-loader.sl-exit .sl-text {
+    animation:
+        sl-text-out calc(var(--sl-exit) * 0.35)
+        ease-in
+        both;
+}
+
+@keyframes sl-fall {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(4.5);
+        opacity: 0;
+    }
+}
+
+@keyframes sl-stars-out {
+    from {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes sl-text-out {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+
+/* =====================================================================
+   15. FALLBACK FOR BROWSERS WITHOUT @PROPERTY
+   ===================================================================== */
+
+.sl-loader.sl-no-prop.sl-exit {
+    -webkit-mask-image: none;
+    mask-image: none;
+
+    transition: none;
+
+    animation:
+        sl-fade var(--sl-exit)
+        ease-in-out
+        both;
+}
+
+@keyframes sl-fade {
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================================
+   16. REDUCED MOTION ACCESSIBILITY
+   ===================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html.sl-active {
+        overflow: auto;
+    }
+
+    .sl-loader {
+        display: none !important;
+    }
+}
+
+
+/* =====================================================================
+   17. MOBILE RESPONSIVENESS
+   ===================================================================== */
+
+@media (max-width: 600px) {
+    .sl-loader {
+        --sl-size: clamp(230px, 75vw, 380px);
+    }
+
+    .sl-stage {
+        top: 43%;
+    }
+
+    .sl-text {
+        bottom: clamp(45px, 12vh, 90px);
+    }
+}
+
+
+/* =====================================================================
+   END OF EVENT HORIZON PRELOADER
+   ===================================================================== */
