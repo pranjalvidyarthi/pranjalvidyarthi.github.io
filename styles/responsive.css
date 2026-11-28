@@ -2,7 +2,9 @@
 @media (max-width: 900px) {
 
     .portrait {
-        display: none;
+        /* display: none; */
+        height: 300px;
+        width: 500px;
     }
 
     .hero-main {
@@ -40,8 +42,8 @@
         position: absolute;
         inset: 0;
         z-index: -1;
-
-        /* background: linear-gradient(
+/* 
+        background: linear-gradient(
             to bottom,
             rgba(17, 17, 17, 0.25),
             rgba(17, 17, 17, 0.85)
